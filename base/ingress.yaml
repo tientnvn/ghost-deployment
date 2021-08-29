@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: squidex-ingress
+  namespace: default
+spec:
+  tls:
+  - hosts:
+    - cms-uat.hsc.com.vn
+    secretName: hsc-secret
+  rules:
+  - host: cms-uat.hsc.com.vn
+    http:
+      paths: 
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: squidex
+            port:
+              number: 5000

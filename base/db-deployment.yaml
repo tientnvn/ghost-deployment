@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-db
+  namespace: staging
+spec:
+  selector:
+    matchLabels:
+      app: blog-db
+  strategy:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: blog-db
+    spec:
+      containers:
+      - image: mysql:5.6
+        name: blog-db
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-account-secret
+              key: rootPassword
+        - name: MYSQL_USER 
+          valueFrom:
+            secretKeyRef:
+              name: db-account-secret
+              key: username
+        - name: MYSQL_PASS 
+          valueFrom:
+            secretKeyRef:
+              name: db-account-secret
+              key: password
+        ports:
+        - containerPort: 3306
+          name: blog-db
+        volumeMounts:
+        - name: blog-db-pv
+          mountPath: /var/lib/mysql
+      volumes:
+      - name: blog-db-pv
+        persistentVolumeClaim:
+          claimName: blog-db-pv-claim
+

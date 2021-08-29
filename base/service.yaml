@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: squidex
+  name: squidex
+  namespace: default
+spec:
+  type: NodePort
+  ports:
+    - port: 5000
+      targetPort: 5000
+      nodePort: 31000
+      protocol: TCP
+  selector:
+    name: squidex
