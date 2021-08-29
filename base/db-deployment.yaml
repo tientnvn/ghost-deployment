@@ -40,8 +40,6 @@ spec:
             secretKeyRef:
               name: db-account-secret
               key: password
-        - name: MYSQL_INITDB_SKIP_TZINFO
-          value: "false"
         ports:
         - containerPort: 3306
           name: blog-db
