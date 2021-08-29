@@ -18,7 +18,6 @@ spec:
       containers:
       - image: mysql:5.7.35
         name: blog-db
-        command: "--innodb_use_native_aio=0"
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
@@ -41,7 +40,7 @@ spec:
               name: db-account-secret
               key: password
         - name: MYSQL_INITDB_SKIP_TZINFO
-          value: ""
+          value: "false"
         ports:
         - containerPort: 3306
           name: blog-db
