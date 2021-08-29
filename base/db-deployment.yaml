@@ -44,6 +44,11 @@ spec:
         volumeMounts:
         - name: blog-db-pv
           mountPath: /bitnami/mysql/data
+        securityContext:
+          allowPrivilegeEscalation: false
+          privileged: false
+          readOnlyRootFilesystem: false
+          runAsNonRoot: false
       volumes:
       - name: blog-db-pv
         persistentVolumeClaim:
