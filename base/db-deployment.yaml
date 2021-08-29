@@ -8,8 +8,6 @@ spec:
     matchLabels:
       app: blog-db
   serviceName: blog-db
-  strategy:
-    type: RollingUpdate
   revisionHistoryLimit: 3
   template:
     metadata:
