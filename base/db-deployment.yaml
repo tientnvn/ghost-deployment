@@ -18,6 +18,7 @@ spec:
       containers:
       - image: mysql:5.7.35
         name: blog-db
+        command: "--innodb_use_native_aio=0"
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
