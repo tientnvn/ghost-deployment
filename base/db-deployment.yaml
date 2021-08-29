@@ -18,7 +18,6 @@ spec:
       containers:
       - image: mysql:5.7.35
         name: blog-db
-        command 
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
