@@ -21,7 +21,7 @@ spec:
         name: blog
     spec:
       containers:
-      - image: ghost:4.2.1
+      - image: ghost:4.12.1
         name: blog
         env:
         - name: database__client
