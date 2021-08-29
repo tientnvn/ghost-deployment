@@ -41,7 +41,7 @@ spec:
               name: db-account-secret
               key: password
         - name: MYSQL_INITDB_SKIP_TZINFO
-          value: "--innodb_use_native_aio=0"
+          value: ""
         ports:
         - containerPort: 3306
           name: blog-db
