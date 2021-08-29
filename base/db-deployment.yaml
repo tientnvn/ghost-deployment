@@ -15,9 +15,7 @@ spec:
         app: blog-db
     spec:
       containers:
-      - image: mysql:5.7.35
-        args:
-          - "--explicit_defaults_for_timestamp"
+      - image: bitnami/mysql:5.7.35
         name: blog-db
         env:
         - name: MYSQL_ROOT_PASSWORD
@@ -45,7 +43,7 @@ spec:
           name: blog-db
         volumeMounts:
         - name: blog-db-pv
-          mountPath: /var/lib/mysql
+          mountPath: /bitnami/mysql/data
       volumes:
       - name: blog-db-pv
         persistentVolumeClaim:
