@@ -8,7 +8,7 @@ metadata:
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
-  revisionHistoryLimit: 10
+  revisionHistoryLimit: 3
   strategy:
     type: RollingUpdate
   selector:
@@ -27,13 +27,22 @@ spec:
         - name: database__client
           value:  mysql
         - name: database__connection__host
-          value: blog-db
+          value: blog-db.staging
         - name: database__connection__user
-          value: root
+          valueFrom:
+            secretKeyRef:
+              name: db-account-secret
+              key: username
         - name: database__connection__password
-          value: fcf60a10c7883e364a4abba570b4655dabf99abbb061f765
+          valueFrom:
+            secretKeyRef:
+              name: db-account-secret
+              key: password
         - name: database__connection__database
-          value: ghost
+          valueFrom:
+            secretKeyRef:
+              name: db-account-secret
+              key: dbName
         - name: url
           value: https://tosu-thien.com
         ports:
@@ -49,8 +58,6 @@ spec:
         terminationMessagePolicy: File
         tty: true
       restartPolicy: Always
-      imagePullSecrets:
-      - name: regcred
       schedulerName: default-scheduler
       securityContext: {}
       terminationGracePeriodSeconds: 30

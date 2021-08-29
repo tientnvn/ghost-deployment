@@ -9,6 +9,7 @@ spec:
       app: blog-db
   strategy:
     type: RollingUpdate
+  revisionHistoryLimit: 3
   template:
     metadata:
       labels:
@@ -28,7 +29,12 @@ spec:
             secretKeyRef:
               name: db-account-secret
               key: username
-        - name: MYSQL_PASS 
+        - name: MYSQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: db-account-secret
+              key: dbName
+        - name: MYSQL_PASSWORD 
           valueFrom:
             secretKeyRef:
               name: db-account-secret

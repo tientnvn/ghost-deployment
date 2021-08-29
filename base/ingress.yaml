@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: squidex-ingress
+  name: blog-ingress
   namespace: default
 spec:
   tls:
@@ -16,6 +16,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: squidex
+            name: blog
             port:
-              number: 5000
+              number: 2368
