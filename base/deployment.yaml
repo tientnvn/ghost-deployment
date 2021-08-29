@@ -44,7 +44,7 @@ spec:
               name: db-account-secret
               key: dbName
         - name: url
-          value: http://139.59.192.230:2368
+          value: http://159.89.211.147:2368
         ports:
         - containerPort: 2368
         resources: {}
