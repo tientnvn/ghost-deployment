@@ -1,5 +1,5 @@
 resources:
-#- db-secret.yaml
+- db-secret.yaml
 
 - db-deployment.yaml
 - db-service.yaml
