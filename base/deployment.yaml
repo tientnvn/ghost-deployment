@@ -7,7 +7,7 @@ metadata:
   namespace: staging
 spec:
   progressDeadlineSeconds: 600
-  replicas: 2
+  replicas: 3
   revisionHistoryLimit: 3
   strategy:
     type: RollingUpdate
@@ -45,6 +45,8 @@ spec:
               key: dbName
         - name: url
           value: http://159.89.211.147:2368
+        - name: CUSTOM_ENV
+          value: "Hello Argocd"
         ports:
         - containerPort: 2368
         resources: {}
