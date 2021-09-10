@@ -7,7 +7,7 @@ metadata:
   namespace: staging
 spec:
   progressDeadlineSeconds: 600
-  replicas: 2
+  replicas: 3
   revisionHistoryLimit: 3
   strategy:
     type: RollingUpdate
@@ -21,7 +21,7 @@ spec:
         name: blog
     spec:
       containers:
-      - image: ghost:3.42
+      - image: ghost:3.42.5
         name: blog
         env:
         - name: database__client
@@ -48,7 +48,7 @@ spec:
         - name: CUSTOM_ENV
           value: "Hello Argocd"
         - name: CUSTOM_ENV_2
-          value: "Hello Argocd, My Name is Tien"
+          value: "Hello Argocd"
         ports:
         - containerPort: 2368
         resources: {}
