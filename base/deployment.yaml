@@ -21,7 +21,7 @@ spec:
         name: blog
     spec:
       containers:
-      - image: ghost:3.42.5
+      - image: ghost:3.42
         name: blog
         env:
         - name: database__client
@@ -48,7 +48,7 @@ spec:
         - name: CUSTOM_ENV
           value: "Hello Argocd"
         - name: CUSTOM_ENV_2
-          value: "Hello Argocd"
+          value: "Hello Argocd, hi "
         ports:
         - containerPort: 2368
         resources: {}
