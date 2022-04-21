@@ -4,7 +4,6 @@ metadata:
   labels:
     name: blog
   name: blog
-  namespace: staging
 spec:
   type: LoadBalancer
   ports:
