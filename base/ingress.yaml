@@ -6,7 +6,6 @@ spec:
   tls:
   - hosts:
     - home-labs.me
-    secretName: hsc-secret
   rules:
   - host: home-labs.me
     http:
