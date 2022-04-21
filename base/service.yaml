@@ -5,7 +5,7 @@ metadata:
     name: blog
   name: blog
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: 2368
       targetPort: 2368
