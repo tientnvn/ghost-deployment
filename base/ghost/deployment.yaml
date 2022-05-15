@@ -1,11 +1,10 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   labels:
     name: blog
   name: blog
 spec:
-  serviceName: blog
   revisionHistoryLimit: 3
   selector:
     matchLabels:
