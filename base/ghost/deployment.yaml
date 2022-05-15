@@ -56,10 +56,17 @@ spec:
           privileged: false
           readOnlyRootFilesystem: false
           runAsNonRoot: false
+        volumeMounts:
+        - name: blog-app-pv
+          mountPath: /var/lib/ghost/content
         stdin: true
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
         tty: true
+      volumes:
+      - name: blog-app-pv
+        persistentVolumeClaim:
+          claimName: blog-app-pv-claim
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
