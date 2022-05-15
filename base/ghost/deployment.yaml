@@ -6,7 +6,6 @@ metadata:
   name: blog
 spec:
   serviceName: blog
-  replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
