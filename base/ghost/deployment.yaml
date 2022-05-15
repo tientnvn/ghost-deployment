@@ -5,11 +5,10 @@ metadata:
     name: blog
   name: blog
 spec:
+  serviceName: blog
   progressDeadlineSeconds: 600
   replicas: 1
   revisionHistoryLimit: 3
-  strategy:
-    type: RollingUpdate
   selector:
     matchLabels:
       name: blog
