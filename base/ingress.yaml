@@ -2,14 +2,14 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: blog-ingress
-  annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+#   annotations:
+#     cert-manager.io/cluster-issuer: "letsencrypt-prod"
     kubernetes.io/ingress.class: "nginx"
 spec:
   tls:
-  - hosts:
-    - home-labs.me
-    secretName: echo-tls
+#   - hosts:
+#     - home-labs.me
+#     secretName: echo-tls
   rules:
   - host: home-labs.me
     http:
