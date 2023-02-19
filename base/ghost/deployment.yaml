@@ -39,7 +39,7 @@ spec:
               name: db-account-secret
               key: dbName
         - name: url
-          value: https://home-labs.me
+          value: http://home-labs.me
         - name: CUSTOM_ENV
           value: "Hello Argocd"
         - name: CUSTOM_ENV_2
